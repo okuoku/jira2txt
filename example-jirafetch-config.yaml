@@ -1,0 +1,5 @@
+jira:
+    root: http://localhost:2990/jira
+    #root: https://issues.apache.org/jira
+    #jql: "PROJECT = FOP"
+    jql: "PROJECT = TEMP"
