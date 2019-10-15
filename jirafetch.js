@@ -207,13 +207,17 @@ async function loop(){
         prevtime = checktime;
         await delay(); // FIXME: Do we need to ensure close?
         if(updates > 0){
-            await exec("git add issues", // FIXME: Configurable??
-                       {cwd: rootconfig.repository.path});
-            const {stdout, stderr} = 
-                await exec("git commit -m Update",
+            try {
+                await exec("git add issues", // FIXME: Configurable??
                            {cwd: rootconfig.repository.path});
-            console.log("Stdout", stdout);
-            console.log("Stderr", stderr);
+                const {stdout, stderr} = 
+                    await exec("git commit -q -m Update",
+                               {cwd: rootconfig.repository.path});
+                console.log("Stdout", stdout);
+                console.log("Stderr", stderr);
+            } catch(e) {
+                console.log("Ignore script error.",e);
+            }
         }
     }
 }
