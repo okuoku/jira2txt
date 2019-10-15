@@ -80,7 +80,8 @@ async function fetch_jira_search(query){
 }
 
 async function fetch_jira_issue(issueid /* String */){
-    const res = await fetch_jira("/rest/api/2/issue/" + issueid, {});
+    const res = await fetch_jira("/rest/api/2/issue/" + issueid, 
+                                 {"expand":"changelog"});
     //console.log(res);
     return res;
 }
