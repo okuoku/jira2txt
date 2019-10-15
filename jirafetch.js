@@ -177,7 +177,7 @@ async function run(jiradate){ // => Update count
         }));
     });
 
-    Promise.all(works).then(_ => {
+    await Promise.all(works).then(_ => {
         buf.forEach(e => {
             console.log("Write", e.id);
             save_issue_yaml(e);
