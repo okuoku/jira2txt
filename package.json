@@ -13,6 +13,7 @@
     "js-yaml": "^3.13.1",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.6.0",
-    "promise-queue": "^2.2.5"
+    "promise-queue": "^2.2.5",
+    "recursive-readdir": "^2.2.2"
   }
 }
